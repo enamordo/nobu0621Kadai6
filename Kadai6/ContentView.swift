@@ -27,12 +27,12 @@ struct ContentView: View {
             }
             Button("判定！") {
                 showAlert = true
-                if randomNumber == Int(selectedValue) {
-                    message = "あたり!"
+                let result: String = if randomNumber == Int(selectedValue) {
+                    "あたり!"
                 } else {
-                    message = "はずれ!"
+                    "はずれ!"
                 }
-                message += "\nあなたの値:　\(Int(selectedValue))"
+                message = result + "\nあなたの値:　\(Int(selectedValue))"
             }
             .alert(isPresented: $showAlert) {
                 Alert(title: Text("結果"), message: Text(message), dismissButton: .default(Text("再挑戦"), action: resetRandomNumberAndSelectedValue)
